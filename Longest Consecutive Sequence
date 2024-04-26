@@ -1,0 +1,18 @@
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        Arrays.sort(nums); //sorting for getting conintous numbers
+        if(nums.length==0)
+        return 0;
+        int c=1,ans=1;
+        for(int i=1;i<nums.length;i++){
+        if(nums[i-1]==nums[i]-1) //checking if diff is 1 then it is cons
+        c++;
+        else if(nums[i]==nums[i-1])// for repetition
+        continue;
+        else
+        c=1; //if diff >1
+        ans=Math.max(ans,c);
+        }
+        return ans;
+    }
+}
